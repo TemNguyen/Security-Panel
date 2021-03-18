@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
-using System.Threading;
 
 namespace Security_Panel
 {
@@ -19,18 +18,18 @@ namespace Security_Panel
         private void getNumber(object o, EventArgs e)
         {
             if (Screen.TextLength < 6)
-            Screen.Text += ((Button)o).Text;
+                Screen.Text += ((Button)o).Text;
             Ok.Focus();
         }
         private void getPressNumber(object o, KeyPressEventArgs e)
         {
-            if(Screen.TextLength < 6 && e.KeyChar >= '0' && e.KeyChar <= '9' && e.KeyChar != Convert.ToChar(Keys.Enter))
-            Screen.Text += e.KeyChar.ToString();
+            if (Screen.TextLength < 6 && e.KeyChar >= '0' && e.KeyChar <= '9' && e.KeyChar != Convert.ToChar(Keys.Enter))
+                Screen.Text += e.KeyChar.ToString();
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 if (attemps == 0) MessageBox.Show("Vui lòng đợi trong " + clockCycle + " (s)", "Waiting", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 EnterPress();
-            }                       
+            }
         }
         private void Ok_Click(object sender, EventArgs e)
         {
@@ -100,23 +99,24 @@ namespace Security_Panel
             }
         }
 
+
         //clear log event.
         private void button10_Click(object sender, EventArgs e)
         {
             Ok.Focus();
-            DialogResult d =  MessageBox.Show("Bạn có chắc chắn muốn xóa file Login Log?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            switch(d)
-            {
-                case DialogResult.Yes:
-                    File.Delete(path);
-                    MessageBox.Show("Xóa thành công", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    File.Create(path);
-                    listBox1.Items.Clear();
-                    break;
-                case DialogResult.No:
-                    break;
-            }
-            
+            DialogResult d = MessageBox.Show("Bạn có chắc chắn muốn xóa file Login Log?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            switch (d)
+                {
+                    case DialogResult.Yes:
+                        File.Delete(path);
+                        MessageBox.Show("Xóa thành công", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        File.Create(path);
+                        listBox1.Items.Clear();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+
         }
     }
 }
