@@ -1,0 +1,10 @@
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\bin\Debug\Security Panel.exe.config
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\bin\Debug\Security Panel.exe
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\bin\Debug\Security Panel.pdb
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security Panel.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security_Panel.Form1.resources
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security_Panel.Properties.Resources.resources
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security Panel.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security Panel.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security Panel.exe
+C:\Users\DELL\Desktop\test\Security Panel\Security Panel\obj\Debug\Security Panel.pdb
