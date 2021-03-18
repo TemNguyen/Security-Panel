@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Screen = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             this.Ok = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Screen
@@ -270,6 +273,26 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Log";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button10
+            // 
+            this.button10.AutoSize = true;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.Red;
+            this.button10.Location = new System.Drawing.Point(230, 470);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(101, 30);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "Clear Log";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.getPressNumber);
+            // 
             // Form1
             // 
             this.AcceptButton = this.Ok;
@@ -278,6 +301,7 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(394, 640);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Ok);
@@ -317,6 +341,8 @@
         private System.Windows.Forms.Button Ok;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button10;
     }
 }
 
