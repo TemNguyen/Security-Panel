@@ -50,6 +50,7 @@
             // 
             // Screen
             // 
+            this.Screen.Cursor = System.Windows.Forms.Cursors.No;
             this.Screen.Enabled = false;
             this.Screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Screen.Location = new System.Drawing.Point(23, 27);
@@ -282,6 +283,7 @@
             // button10
             // 
             this.button10.AutoSize = true;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.Red;
             this.button10.Location = new System.Drawing.Point(230, 470);
@@ -317,6 +319,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Screen);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Security Panel";
             this.ResumeLayout(false);

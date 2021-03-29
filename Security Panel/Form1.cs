@@ -30,6 +30,10 @@ namespace Security_Panel
                 if (attemps == 0) MessageBox.Show("Vui lòng đợi trong " + clockCycle + " (s)", "Waiting", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 EnterPress();
             }
+            if (e.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                Screen.Text = Screen.Text.Remove(Screen.TextLength - 1);
+            }
         }
         private void Ok_Click(object sender, EventArgs e)
         {
@@ -37,6 +41,11 @@ namespace Security_Panel
         }
         private void EnterPress()
         {
+            if (Screen.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu!!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (attemps == 0)
             {
                 Ok.Enabled = false;
@@ -110,8 +119,9 @@ namespace Security_Panel
                     case DialogResult.Yes:
                         File.Delete(path);
                         MessageBox.Show("Xóa thành công", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        File.Create(path);
+                        var myFile = File.Create(path);
                         listBox1.Items.Clear();
+                        myFile.Close();
                         break;
                     case DialogResult.No:
                         break;
