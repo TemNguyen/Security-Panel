@@ -47,6 +47,13 @@ namespace Security_Panel
                 MessageBox.Show("Vui lòng nhập mật khẩu!!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (Screen.TextLength == 1)
+            {
+                DateTime d = DateTime.Now;
+                MessageBox.Show(d + " Restricted Access!!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                attemps--;
+                MessageBox.Show("Bạn còn " + attemps + " lần thử!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
             if (attemps == 0)
             {
                 Ok.Enabled = false;
@@ -55,15 +62,20 @@ namespace Security_Panel
                 Screen.Text = "";
                 return;
             }
+            if (Screen.TextLength == 1)
+            {
+                Screen.Text = "";
+                return;
+            }    
             if (Screen.Text == pass)
             {
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     DateTime d = DateTime.Now;
-                    sw.WriteLine(d + " Access Accepted!");
+                    sw.WriteLine(d + " Access Granted!");
                     sw.Dispose();
                 }
-                MessageBox.Show("Đăng nhập thành công", "Access Accepted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập thành công", "Access Granted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 attemps = 3;
             }
             else
