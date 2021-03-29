@@ -6,7 +6,8 @@ namespace Security_Panel
 {
     public partial class Form1 : Form
     {
-        string pass = File.ReadAllText(@"C:\Users\DELL\Desktop\test\Security Panel\Security Panel\Assets\Pass_word.txt");
+        //string pass = File.ReadAllText(@"C:\Users\DELL\Desktop\test\Security Panel\Security Panel\Assets\Pass_word.txt");
+        string pass = "123456";
         string path = @"C:\Users\DELL\Desktop\test\Security Panel\Security Panel\Assets\Login_Log.txt";
         int attemps = 3;
         int clockCycle = 10;
@@ -59,10 +60,10 @@ namespace Security_Panel
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     DateTime d = DateTime.Now;
-                    sw.WriteLine(d + " Login Success");
+                    sw.WriteLine(d + " Access Accepted!");
                     sw.Dispose();
                 }
-                MessageBox.Show("Đăng nhập thành công", "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập thành công", "Access Accepted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 attemps = 3;
             }
             else
@@ -71,10 +72,10 @@ namespace Security_Panel
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     DateTime d = DateTime.Now;
-                    sw.WriteLine(d + " Login Fail");
+                    sw.WriteLine(d + " Access Denied!");
                     sw.Dispose();
                 }
-                MessageBox.Show("Đăng nhập thất bại", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đăng nhập thất bại", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show("Bạn còn " + attemps + " lần thử!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             ShowLog();
@@ -83,7 +84,7 @@ namespace Security_Panel
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            Screen.Text = "";
+            Screen.Text = Screen.Text.Remove(Screen.TextLength - 1);
         }
         private void ShowLog()
         {
@@ -126,7 +127,12 @@ namespace Security_Panel
                     case DialogResult.No:
                         break;
                 }
+        }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) Screen.PasswordChar = '\0';
+            else Screen.PasswordChar = '*';
         }
     }
 }
