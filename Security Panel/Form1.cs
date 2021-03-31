@@ -7,7 +7,7 @@ namespace Security_Panel
     public partial class Form1 : Form
     {
         //string pass = File.ReadAllText(@"C:\Users\DELL\Desktop\test\Security Panel\Security Panel\Assets\Pass_word.txt");
-        string pass = "123456";
+        string pass = "1234";
         string path = @"C:\Users\DELL\Desktop\test\Security Panel\Security Panel\Assets\Login_Log.txt";
         int attemps = 3;
         int clockCycle = 10;
@@ -18,13 +18,13 @@ namespace Security_Panel
         }
         private void getNumber(object o, EventArgs e)
         {
-            if (Screen.TextLength < 6)
+            if (Screen.TextLength < 4)
                 Screen.Text += ((Button)o).Text;
             Ok.Focus();
         }
         private void getPressNumber(object o, KeyPressEventArgs e)
         {
-            if (Screen.TextLength < 6 && e.KeyChar >= '0' && e.KeyChar <= '9' && e.KeyChar != Convert.ToChar(Keys.Enter))
+            if (Screen.TextLength < 4 && e.KeyChar >= '0' && e.KeyChar <= '9' && e.KeyChar != Convert.ToChar(Keys.Enter))
                 Screen.Text += e.KeyChar.ToString();
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -33,7 +33,7 @@ namespace Security_Panel
             }
             if (e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                Screen.Text = Screen.Text.Remove(Screen.TextLength - 1);
+                Screen.Text = "";
             }
         }
         private void Ok_Click(object sender, EventArgs e)
@@ -96,16 +96,19 @@ namespace Security_Panel
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            Screen.Text = Screen.Text.Remove(Screen.TextLength - 1);
+            Screen.Text = "";
         }
         private void ShowLog()
         {
             listBox1.Items.Clear();
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines)
+            using(StreamReader sr = new StreamReader(path))
             {
-                listBox1.Items.Add(line);
-            }
+                string line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    listBox1.Items.Add(line);
+                }
+            }    
             listBox1.SelectedIndex = listBox1.Items.Count - 1;
         }
         //time tick = 1s.
